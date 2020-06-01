@@ -3,13 +3,16 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
+import { LinearGradient } from 'expo-linear-gradient';
+
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from 'expo-linear-gradient';
 import PageSlider from 'react-native-app-intro-slider';
-import { getFavCities, dateTimeToDay, dateTimeToFullDate } from '../misc';
+
+import { dateTimeToDay, dateTimeToFullDate } from '../helper';
+import { getFavCities } from '../misc';
 
 const styles = StyleSheet.create({
   // Upper page
