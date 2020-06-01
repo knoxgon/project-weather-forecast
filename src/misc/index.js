@@ -28,3 +28,14 @@ export const saveBatch = async (key, cityInput) => {
   return fetchForecast(key, cityInput, storageItem);
 };
 
+export const removeBatchElement = async (key, itemId) => {
+  // Retrieve data from the storage
+  const rawCityList = await AsyncStorage.getItem(key);
+  // Parse the retrieved data
+  const cityList = JSON.parse(rawCityList);
+  // Remove the retieved data from the array
+  const newCityList = cityList.filter((item) => item.city.id !== itemId);
+  // Apply the new dataset back to the storage
+  await AsyncStorage.setItem(key, JSON.stringify(newCityList));
+};
+
