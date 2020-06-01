@@ -39,3 +39,8 @@ export const removeBatchElement = async (key, itemId) => {
   await AsyncStorage.setItem(key, JSON.stringify(newCityList));
 };
 
+export const getFavCities = async (key) => {
+  const result = await AsyncStorage.getItem(key);
+  return JSON.parse(result) || [];
+};
+
