@@ -68,3 +68,29 @@ export const dateTimeToDay = (timestamp) => {
   }
 };
 
+export const dateTimeToFullDate = (timestamp) => {
+  const monthNamesAbbreviated = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  const date = new Date(timestamp * 1000);
+  // eslint-disable-next-line operator-linebreak
+  const day =
+    date.getDay() > 0 && date.getDay() < 10
+      ? `0${date.getDay()}`
+      : date.getDay();
+  const month = monthNamesAbbreviated[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${day} - ${month} / ${year}`;
+};
