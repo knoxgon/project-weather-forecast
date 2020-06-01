@@ -20,3 +20,11 @@ const fetchForecast = async (key, cityInput, storageItem) => {
   await AsyncStorage.setItem(key, JSON.stringify(objArray));
   return objArray;
 };
+
+export const saveBatch = async (key, cityInput) => {
+  // Get existing data
+  const storageItem = await AsyncStorage.getItem(key);
+  // Send the data along with input
+  return fetchForecast(key, cityInput, storageItem);
+};
+
