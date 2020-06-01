@@ -2,6 +2,7 @@
 /* eslint-disable no-plusplus */
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -160,6 +161,7 @@ const HomeScreen = ({ navigation }) => {
    * city.forecastDays[index].situation
    */
   const [cities, setCities] = useState([]);
+  const isFocused = useIsFocused();
 
   const getAllCities = async () => {
     await getFavCities('favCities').then((allCities) => {
@@ -193,7 +195,7 @@ const HomeScreen = ({ navigation }) => {
   useEffect(() => {
     setCities([]);
     getAllCities();
-  }, []);
+  }, [isFocused]);
 
   const renderDailyForecastItems = ({ item }) => {
     return (
@@ -333,6 +335,7 @@ const HomeScreen = ({ navigation }) => {
       </View>
     );
   };
+
   if (cities.length > 0) {
     return (
       <LinearGradient
