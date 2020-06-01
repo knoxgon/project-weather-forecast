@@ -44,3 +44,27 @@ export const getFavCities = async (key) => {
   return JSON.parse(result) || [];
 };
 
+export const dateTimeToDay = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  const dayDigit = new Date(date).getDay();
+
+  switch (dayDigit) {
+    case 1:
+      return 'Mon';
+    case 2:
+      return 'Tue';
+    case 3:
+      return 'Wed';
+    case 4:
+      return 'Thu';
+    case 5:
+      return 'Fri';
+    case 6:
+      return 'Sat';
+    case 7:
+      return 'Sun';
+    default:
+      return '';
+  }
+};
+
